@@ -209,7 +209,7 @@
             // 
             // txtCodigoEliminado
             // 
-            this.txtCodigoEliminado.Location = new System.Drawing.Point(126, 30);
+            this.txtCodigoEliminado.Location = new System.Drawing.Point(126, 29);
             this.txtCodigoEliminado.Name = "txtCodigoEliminado";
             this.txtCodigoEliminado.Size = new System.Drawing.Size(100, 20);
             this.txtCodigoEliminado.TabIndex = 7;
