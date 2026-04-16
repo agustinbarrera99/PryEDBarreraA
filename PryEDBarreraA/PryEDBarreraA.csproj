@@ -47,17 +47,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsArchivoTexto.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="clsCola.cs" />
+    <Compile Include="clsNodo.cs" />
+    <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="frmPrincipal.Designer.cs">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAlumnos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAlumnos.Designer.cs">
       <DependentUpon>frmAlumnos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCarreras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCarreras.Designer.cs">
+      <DependentUpon>frmCarreras.cs</DependentUpon>
     </Compile>
     <Compile Include="frmClientes.cs">
       <SubType>Form</SubType>
@@ -91,8 +99,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAlumnos.resx">
       <DependentUpon>frmAlumnos.cs</DependentUpon>
