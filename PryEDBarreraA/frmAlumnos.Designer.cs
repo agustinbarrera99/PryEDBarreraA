@@ -30,15 +30,16 @@
         {
             this.btnGrabar = new System.Windows.Forms.Button();
             this.dgvAlumnos = new System.Windows.Forms.DataGridView();
+            this.clmCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmCarrera = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtCarrera = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblCarrera = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
-            this.clmCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmCarrera = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnListar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,6 +65,21 @@
             this.dgvAlumnos.Size = new System.Drawing.Size(343, 150);
             this.dgvAlumnos.TabIndex = 14;
             // 
+            // clmCodigo
+            // 
+            this.clmCodigo.HeaderText = "Codigo";
+            this.clmCodigo.Name = "clmCodigo";
+            // 
+            // clmNombre
+            // 
+            this.clmNombre.HeaderText = "Nombre";
+            this.clmNombre.Name = "clmNombre";
+            // 
+            // clmCarrera
+            // 
+            this.clmCarrera.HeaderText = "Carrera";
+            this.clmCarrera.Name = "clmCarrera";
+            // 
             // txtCarrera
             // 
             this.txtCarrera.Location = new System.Drawing.Point(144, 82);
@@ -88,16 +104,16 @@
             // lblCarrera
             // 
             this.lblCarrera.AutoSize = true;
-            this.lblCarrera.Location = new System.Drawing.Point(37, 82);
+            this.lblCarrera.Location = new System.Drawing.Point(88, 85);
             this.lblCarrera.Name = "lblCarrera";
-            this.lblCarrera.Size = new System.Drawing.Size(39, 13);
+            this.lblCarrera.Size = new System.Drawing.Size(44, 13);
             this.lblCarrera.TabIndex = 10;
-            this.lblCarrera.Text = "Deuda";
+            this.lblCarrera.Text = "Carrera:";
             // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(34, 55);
+            this.lblNombre.Location = new System.Drawing.Point(87, 58);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(47, 13);
             this.lblNombre.TabIndex = 9;
@@ -106,32 +122,28 @@
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(34, 28);
+            this.lblCodigo.Location = new System.Drawing.Point(87, 28);
             this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(50, 13);
+            this.lblCodigo.Size = new System.Drawing.Size(43, 13);
             this.lblCodigo.TabIndex = 8;
-            this.lblCodigo.Text = "lblCodigo";
+            this.lblCodigo.Text = "Codigo:";
             // 
-            // clmCodigo
+            // btnListar
             // 
-            this.clmCodigo.HeaderText = "Codigo";
-            this.clmCodigo.Name = "clmCodigo";
-            // 
-            // clmNombre
-            // 
-            this.clmNombre.HeaderText = "Nombre";
-            this.clmNombre.Name = "clmNombre";
-            // 
-            // clmCarrera
-            // 
-            this.clmCarrera.HeaderText = "Carrera";
-            this.clmCarrera.Name = "clmCarrera";
+            this.btnListar.Location = new System.Drawing.Point(127, 109);
+            this.btnListar.Name = "btnListar";
+            this.btnListar.Size = new System.Drawing.Size(75, 23);
+            this.btnListar.TabIndex = 16;
+            this.btnListar.Text = "Listar";
+            this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
             // frmAlumnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(399, 305);
+            this.Controls.Add(this.btnListar);
             this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.dgvAlumnos);
             this.Controls.Add(this.txtCarrera);
@@ -162,5 +174,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCarrera;
+        private System.Windows.Forms.Button btnListar;
     }
 }

@@ -39,6 +39,7 @@
             this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDeuda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnGrabar = new System.Windows.Forms.Button();
+            this.btnListar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,11 +128,22 @@
             this.btnGrabar.UseVisualStyleBackColor = true;
             this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
+            // btnListar
+            // 
+            this.btnListar.Location = new System.Drawing.Point(125, 111);
+            this.btnListar.Name = "btnListar";
+            this.btnListar.Size = new System.Drawing.Size(75, 23);
+            this.btnListar.TabIndex = 8;
+            this.btnListar.Text = "Listar";
+            this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
+            // 
             // frmClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(403, 302);
+            this.Controls.Add(this.btnListar);
             this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.dgvClientes);
             this.Controls.Add(this.txtDeuda);
@@ -161,5 +173,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDeuda;
         private System.Windows.Forms.Button btnGrabar;
+        private System.Windows.Forms.Button btnListar;
     }
 }

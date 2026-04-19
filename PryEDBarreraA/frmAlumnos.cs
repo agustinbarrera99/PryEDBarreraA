@@ -21,7 +21,22 @@ namespace PryEDBarreraA
         {
             clsArchivoTexto x = new clsArchivoTexto();
             x.NombreArchivo = "Alumnos.csv";
+            if (txtCodigo.Text == "" || txtNombre.Text == "" || txtCarrera.Text == "")
+            {
+                MessageBox.Show("Debe completar todos los campos");
+                return;
+            }
             x.Grabar(txtCodigo.Text, txtNombre.Text, txtCarrera.Text);
+            txtCodigo.Text = "";
+            txtNombre.Text = "";
+            txtCarrera.Text = "";
+            x.Recorrer(dgvAlumnos);
+        }
+
+        private void btnListar_Click(object sender, EventArgs e)
+        {
+            clsArchivoTexto x = new clsArchivoTexto();
+            x.NombreArchivo = "Alumnos.csv";
             x.Recorrer(dgvAlumnos);
         }
     }
