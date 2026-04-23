@@ -38,13 +38,19 @@ namespace PryEDBarreraA
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            clsNodo nodo = new clsNodo();
-            lblCodigo1.Text = Convert.ToString(cola.Primero.Codigo);
-            lblNombre1.Text = cola.Primero.Nombre;
-            lblTramite1.Text = cola.Primero.Tramite;
-            cola.Eliminar();
-            cola.Recorrer(dgvCola);
-            cola.Recorrer(lstCola);
+            if (cola.Primero != null)
+            {
+                clsNodo nodo = new clsNodo();
+                lblCodigo1.Text = Convert.ToString(cola.Primero.Codigo);
+                lblNombre1.Text = cola.Primero.Nombre;
+                lblTramite1.Text = cola.Primero.Tramite;
+                cola.Eliminar();
+                cola.Recorrer(dgvCola);
+                cola.Recorrer(lstCola);
+            } else
+            {
+                MessageBox.Show("No hay elementos en la cola");
+            }
         }
     }
 }
