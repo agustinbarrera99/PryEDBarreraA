@@ -104,6 +104,7 @@
     <Compile Include="frmMeses.Designer.cs">
       <DependentUpon>frmMeses.cs</DependentUpon>
     </Compile>
+    <Compile Include="clsListSimple.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmListaSimple.resx">
