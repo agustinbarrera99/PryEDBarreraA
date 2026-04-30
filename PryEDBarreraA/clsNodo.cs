@@ -12,6 +12,7 @@ namespace PryEDBarreraA
         private string nom;
         private string tra;
         private clsNodo sig;
+        private clsNodo ant;
 
 
         public int Codigo
@@ -33,6 +34,11 @@ namespace PryEDBarreraA
         {
             get { return sig; }
             set { sig = value; }
+        }
+        public clsNodo Anterior
+        {
+            get { return ant; }
+            set { ant = value; }
         }
     }
 }
