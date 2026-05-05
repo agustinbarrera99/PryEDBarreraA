@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -110,6 +111,87 @@ namespace PryEDBarreraA
                 AD.Write(";");
                 AD.WriteLine(aux.Tramite);
                 aux = aux.Siguiente;
+            }
+            AD.Close();
+        }
+        public void Eliminar(int cod)
+        {
+            if (pri.Codigo == cod && Ultimo == Primero)
+            {
+                
+            }
+            else
+            {
+                if (Primero.Codigo == cod)
+                {
+                    Primero = Primero.Siguiente;
+                    Primero.Anterior = null;
+                }
+                else
+                {
+                    if (Ultimo.Codigo == cod)
+                    {
+                        Ultimo = Ultimo.Anterior;
+                        Ultimo.Siguiente = null;
+                    }
+                    else
+                    {
+                        clsNodo aux = Primero;
+                        clsNodo ant = Primero;
+                        while (aux.Codigo < cod)
+                        {
+                            ant = aux;
+                            aux = aux.Siguiente;
+                        }
+                        aux = aux.Siguiente;
+                        ant.Siguiente = aux;
+                        aux.Anterior = ant;
+                    }
+                }
+            }
+        }
+        public void Recorrer_desc(DataGridView dgv)
+        {
+            clsNodo aux = Ultimo;
+            dgv.Rows.Clear();
+            while (aux != null)
+            {
+                dgv.Rows.Add(aux.Codigo, aux.Nombre, aux.Tramite);
+                aux = aux.Anterior;
+            }
+        }
+        public void Recorrer_desc(ListBox lst)
+        {
+            clsNodo aux = Ultimo;
+            lst.Items.Clear();
+            while (aux != null)
+            {
+                lst.Items.Add(aux.Codigo);
+                aux = aux.Anterior;
+            }
+        }
+        public void Recorrer_desc(ComboBox cmb)
+        {
+            clsNodo aux = Ultimo;
+            cmb.Items.Clear();
+            while (aux != null)
+            {
+                cmb.Items.Add(aux.Codigo + " - " + aux.Nombre + " - " + aux.Tramite);
+                aux = aux.Anterior;
+            }
+        }
+        public void Recorrer_desc()
+        {
+            StreamWriter AD = new StreamWriter(NombreArchivo, true);
+            clsNodo aux = Ultimo;
+            while (aux != null)
+            {
+                AD.Write(aux.Codigo);
+                AD.Write(";");
+                AD.Write(aux.Nombre);
+                AD.Write(";");
+                AD.WriteLine(aux.Tramite);
+                aux = aux.Anterior;
             }
             AD.Close();
         }
