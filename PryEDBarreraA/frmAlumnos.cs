@@ -1,43 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PryEDBarreraA
 {
     public partial class frmAlumnos : Form
     {
+        clsArchivoTexto archivo = new clsArchivoTexto();
+
         public frmAlumnos()
         {
             InitializeComponent();
+            archivo.NombreArchivo = "Alumnos.csv";
+            archivo.Recorrer(dgvAlumnos);
         }
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
-            clsArchivoTexto x = new clsArchivoTexto();
-            x.NombreArchivo = "Alumnos.csv";
             if (txtCodigo.Text == "" || txtNombre.Text == "" || txtCarrera.Text == "")
             {
                 MessageBox.Show("Debe completar todos los campos");
                 return;
             }
-            x.Grabar(txtCodigo.Text, txtNombre.Text, txtCarrera.Text);
+
+            archivo.Grabar(txtCodigo.Text, txtNombre.Text, txtCarrera.Text);
+            archivo.Recorrer(dgvAlumnos);
+
             txtCodigo.Text = "";
             txtNombre.Text = "";
             txtCarrera.Text = "";
-            x.Recorrer(dgvAlumnos);
+            txtCodigo.Focus();
         }
 
         private void btnListar_Click(object sender, EventArgs e)
         {
-            clsArchivoTexto x = new clsArchivoTexto();
-            x.NombreArchivo = "Alumnos.csv";
-            x.Recorrer(dgvAlumnos);
+            archivo.Recorrer(dgvAlumnos);
         }
     }
 }

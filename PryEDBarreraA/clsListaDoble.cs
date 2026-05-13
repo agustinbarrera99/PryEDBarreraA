@@ -63,39 +63,47 @@ namespace PryEDBarreraA
         }
         public void Eliminar(int cod)
         {
-            if (pri.Codigo == cod && Ultimo == Primero)
+            if (pri == null)
             {
-                
+                MessageBox.Show("La lista está vacía.");
+                return;
             }
-            else
+
+            if (Primero.Codigo == cod && Primero == Ultimo)
             {
-                if (Primero.Codigo == cod)
-                {
-                    Primero = Primero.Siguiente;
-                    Primero.Anterior = null;
-                }
-                else
-                {
-                    if (Ultimo.Codigo == cod)
-                    {
-                        Ultimo = Ultimo.Anterior;
-                        Ultimo.Siguiente = null;
-                    }
-                    else
-                    {
-                        clsNodo aux = Primero;
-                        clsNodo ant = Primero;
-                        while (aux.Codigo < cod)
-                        {
-                            ant = aux;
-                            aux = aux.Siguiente;
-                        }
-                        aux = aux.Siguiente;
-                        ant.Siguiente = aux;
-                        aux.Anterior = ant;
-                    }
-                }
+                Primero = null;
+                Ultimo = null;
+                return;
             }
+
+            if (Primero.Codigo == cod)
+            {
+                Primero = Primero.Siguiente;
+                Primero.Anterior = null;
+                return;
+            }
+
+            if (Ultimo.Codigo == cod)
+            {
+                Ultimo = Ultimo.Anterior;
+                Ultimo.Siguiente = null;
+                return;
+            }
+
+            clsNodo aux = Primero.Siguiente;
+            while (aux != null && aux.Codigo != cod)
+            {
+                aux = aux.Siguiente;
+            }
+
+            if (aux == null)
+            {
+                MessageBox.Show("Código no encontrado.");
+                return;
+            }
+
+            aux.Anterior.Siguiente = aux.Siguiente;
+            aux.Siguiente.Anterior = aux.Anterior;
         }
         public void Recorrer_desc(DataGridView dgv)
         {

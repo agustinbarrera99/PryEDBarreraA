@@ -1,107 +1,72 @@
 ﻿namespace PryEDBarreraA
 {
-    partial class frmMeses
+    partial class frmDias
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
+            if (disposing && (components != null)) components.Dispose();
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.btnListar = new System.Windows.Forms.Button();
             this.btnGrabar = new System.Windows.Forms.Button();
-            this.lstMeses = new System.Windows.Forms.ListBox();
+            this.lstDias = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
-            // 
-            // lblNombre
-            // 
+
             this.lblNombre.AutoSize = true;
             this.lblNombre.Location = new System.Drawing.Point(43, 47);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(44, 13);
-            this.lblNombre.TabIndex = 0;
             this.lblNombre.Text = "Nombre";
-            // 
-            // txtNombre
-            // 
+
             this.txtNombre.Location = new System.Drawing.Point(93, 44);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(191, 20);
-            this.txtNombre.TabIndex = 1;
-            // 
-            // btnGrabar
-            // 
-            this.btnGrabar.Location = new System.Drawing.Point(171, 94);
-            this.btnGrabar.Name = "btnGrabar";
-            this.btnGrabar.Size = new System.Drawing.Size(113, 23);
-            this.btnGrabar.Text = "Grabar";
-            this.btnGrabar.UseVisualStyleBackColor = true;
-            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
 
-            // btnListar
             this.btnListar.Location = new System.Drawing.Point(46, 94);
             this.btnListar.Name = "btnListar";
             this.btnListar.Size = new System.Drawing.Size(103, 23);
             this.btnListar.Text = "Listar";
-            this.btnListar.UseVisualStyleBackColor = true;
             this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
-            // 
-            // lstMeses
-            // 
-            this.lstMeses.FormattingEnabled = true;
-            this.lstMeses.Location = new System.Drawing.Point(46, 155);
-            this.lstMeses.Name = "lstMeses";
-            this.lstMeses.Size = new System.Drawing.Size(238, 186);
-            this.lstMeses.TabIndex = 4;
-            // 
-            // frmMeses
-            // 
+
+            this.btnGrabar.Location = new System.Drawing.Point(171, 94);
+            this.btnGrabar.Name = "btnGrabar";
+            this.btnGrabar.Size = new System.Drawing.Size(113, 23);
+            this.btnGrabar.Text = "Grabar";
+            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
+
+            this.lstDias.FormattingEnabled = true;
+            this.lstDias.Location = new System.Drawing.Point(46, 155);
+            this.lstDias.Name = "lstDias";
+            this.lstDias.Size = new System.Drawing.Size(238, 186);
+
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(318, 362);
-            this.Controls.Add(this.lstMeses);
+            this.Controls.Add(this.lstDias);
             this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.btnListar);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblNombre);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "frmMeses";
+            this.Name = "frmDias";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Meses";
+            this.Text = "Días";
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
-
-        #endregion
 
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Button btnListar;
         private System.Windows.Forms.Button btnGrabar;
-        private System.Windows.Forms.ListBox lstMeses;
+        private System.Windows.Forms.ListBox lstDias;
     }
 }

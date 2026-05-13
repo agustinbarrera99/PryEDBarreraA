@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListaSimple));
             this.gbListado = new System.Windows.Forms.GroupBox();
             this.dgvListaSimple = new System.Windows.Forms.DataGridView();
             this.clmCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,25 +42,25 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.pbCola = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.gbEliminado = new System.Windows.Forms.GroupBox();
             this.cmbListaSimple = new System.Windows.Forms.ComboBox();
+            this.pbCola = new System.Windows.Forms.PictureBox();
             this.gbListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaSimple)).BeginInit();
             this.gbNuevo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCola)).BeginInit();
             this.gbEliminado.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCola)).BeginInit();
             this.SuspendLayout();
             // 
             // gbListado
             // 
             this.gbListado.Controls.Add(this.dgvListaSimple);
             this.gbListado.Controls.Add(this.lstListaSimple);
-            this.gbListado.Location = new System.Drawing.Point(13, 242);
+            this.gbListado.Location = new System.Drawing.Point(13, 200);
             this.gbListado.Name = "gbListado";
-            this.gbListado.Size = new System.Drawing.Size(740, 196);
+            this.gbListado.Size = new System.Drawing.Size(740, 238);
             this.gbListado.TabIndex = 7;
             this.gbListado.TabStop = false;
             this.gbListado.Text = "Listado en una Lista y una Grilla";
@@ -73,9 +72,9 @@
             this.clmCodigo,
             this.clmNombre,
             this.clmTramite});
-            this.dgvListaSimple.Location = new System.Drawing.Point(240, 20);
+            this.dgvListaSimple.Location = new System.Drawing.Point(356, 20);
             this.dgvListaSimple.Name = "dgvListaSimple";
-            this.dgvListaSimple.Size = new System.Drawing.Size(484, 160);
+            this.dgvListaSimple.Size = new System.Drawing.Size(368, 212);
             this.dgvListaSimple.TabIndex = 1;
             // 
             // clmCodigo
@@ -98,7 +97,7 @@
             this.lstListaSimple.FormattingEnabled = true;
             this.lstListaSimple.Location = new System.Drawing.Point(7, 20);
             this.lstListaSimple.Name = "lstListaSimple";
-            this.lstListaSimple.Size = new System.Drawing.Size(180, 160);
+            this.lstListaSimple.Size = new System.Drawing.Size(343, 212);
             this.lstListaSimple.TabIndex = 0;
             // 
             // gbNuevo
@@ -175,15 +174,6 @@
             this.txtCodigo.Size = new System.Drawing.Size(100, 20);
             this.txtCodigo.TabIndex = 0;
             // 
-            // pbCola
-            // 
-            this.pbCola.Image = ((System.Drawing.Image)(resources.GetObject("pbCola.Image")));
-            this.pbCola.Location = new System.Drawing.Point(12, 12);
-            this.pbCola.Name = "pbCola";
-            this.pbCola.Size = new System.Drawing.Size(223, 223);
-            this.pbCola.TabIndex = 4;
-            this.pbCola.TabStop = false;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -223,6 +213,16 @@
             this.cmbListaSimple.Size = new System.Drawing.Size(121, 21);
             this.cmbListaSimple.TabIndex = 14;
             // 
+            // pbCola
+            // 
+            this.pbCola.Image = global::PryEDBarreraA.Properties.Resources.listasimplementeenlazada;
+            this.pbCola.Location = new System.Drawing.Point(12, 12);
+            this.pbCola.Name = "pbCola";
+            this.pbCola.Size = new System.Drawing.Size(222, 182);
+            this.pbCola.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbCola.TabIndex = 4;
+            this.pbCola.TabStop = false;
+            // 
             // frmListaSimple
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -232,15 +232,18 @@
             this.Controls.Add(this.gbEliminado);
             this.Controls.Add(this.gbNuevo);
             this.Controls.Add(this.pbCola);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MinimizeBox = false;
             this.Name = "frmListaSimple";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Estructura de datos lineal - Lista simple";
             this.gbListado.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaSimple)).EndInit();
             this.gbNuevo.ResumeLayout(false);
             this.gbNuevo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCola)).EndInit();
             this.gbEliminado.ResumeLayout(false);
             this.gbEliminado.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCola)).EndInit();
             this.ResumeLayout(false);
 
         }

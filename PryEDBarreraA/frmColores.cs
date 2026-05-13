@@ -1,28 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PryEDBarreraA
 {
     public partial class frmColores : Form
     {
+        clsArchivoTexto archivo = new clsArchivoTexto();
+
         public frmColores()
         {
             InitializeComponent();
+            archivo.NombreArchivo = "Colores.txt";
+            archivo.Recorrer(lstColores);
         }
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
-            clsArchivoTexto x = new clsArchivoTexto();
-            x.NombreArchivo = "Colores.txt";
-            x.Grabar(txtColor.Text);
-            x.Recorrer(lstColores);
+            if (string.IsNullOrWhiteSpace(txtColor.Text))
+            {
+                MessageBox.Show("Ingrese un color antes de grabar.");
+                return;
+            }
+
+            archivo.Grabar(txtColor.Text);
+            archivo.Recorrer(lstColores);
+            txtColor.Text = "";
+            txtColor.Focus();
         }
     }
 }

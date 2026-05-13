@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPila));
             this.gbListado = new System.Windows.Forms.GroupBox();
             this.dgvPila = new System.Windows.Forms.DataGridView();
             this.clmCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -258,10 +257,11 @@
             // 
             // pbCola
             // 
-            this.pbCola.Image = ((System.Drawing.Image)(resources.GetObject("pbCola.Image")));
+            this.pbCola.Image = global::PryEDBarreraA.Properties.Resources.pila;
             this.pbCola.Location = new System.Drawing.Point(5, 12);
             this.pbCola.Name = "pbCola";
             this.pbCola.Size = new System.Drawing.Size(223, 223);
+            this.pbCola.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbCola.TabIndex = 4;
             this.pbCola.TabStop = false;
             // 
@@ -274,7 +274,10 @@
             this.Controls.Add(this.gbEliminado);
             this.Controls.Add(this.gbNuevo);
             this.Controls.Add(this.pbCola);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frmPila";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Estructura de datos PILA";
             this.gbListado.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPila)).EndInit();

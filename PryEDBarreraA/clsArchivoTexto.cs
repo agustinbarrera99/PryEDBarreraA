@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
 
@@ -12,19 +8,19 @@ namespace PryEDBarreraA
     {
         public string NombreArchivo;
 
-        public void Grabar(string Dato)
+        public void Grabar(string dato)
         {
             StreamWriter AD = new StreamWriter(NombreArchivo, true);
-            AD.WriteLine(Dato);
+            AD.WriteLine(dato);
             AD.Close();
         }
 
-        public void Grabar(string Codigo, string Nombre)
+        public void Grabar(string codigo, string nombre)
         {
             StreamWriter AD = new StreamWriter(NombreArchivo, true);
-            AD.Write(Codigo);
+            AD.Write(codigo);
             AD.Write(";");
-            AD.WriteLine(Nombre);
+            AD.WriteLine(nombre);
             AD.Close();
         }
 
@@ -39,47 +35,59 @@ namespace PryEDBarreraA
             AD.Close();
         }
 
+        private void AsegurarArchivo()
+        {
+            if (!File.Exists(NombreArchivo))
+                File.Create(NombreArchivo).Close();
+        }
         public void Recorrer(ListBox lst)
         {
-            String DatoLeido;
             lst.Items.Clear();
+            AsegurarArchivo();
+
             StreamReader AD = new StreamReader(NombreArchivo);
-            DatoLeido = AD.ReadLine();
-            while (DatoLeido != null)
+            string datoLeido = AD.ReadLine();
+            while (datoLeido != null)
             {
-                lst.Items.Add(DatoLeido);
-                DatoLeido = AD.ReadLine();
+                if (!string.IsNullOrWhiteSpace(datoLeido))
+                    lst.Items.Add(datoLeido);
+                datoLeido = AD.ReadLine();
             }
             AD.Close();
         }
 
         public void Recorrer(DataGridView dgv)
         {
-            String DatoLeido;
             dgv.Rows.Clear();
+            AsegurarArchivo();
+
             StreamReader AD = new StreamReader(NombreArchivo);
-            DatoLeido = AD.ReadLine();
-            while (DatoLeido != null)
+            string datoLeido = AD.ReadLine();
+            while (datoLeido != null)
             {
-                dgv.Rows.Add(DatoLeido.Split(';'));
-                DatoLeido = AD.ReadLine();
+                if (!string.IsNullOrWhiteSpace(datoLeido))
+                    dgv.Rows.Add(datoLeido.Split(';'));
+                datoLeido = AD.ReadLine();
             }
             AD.Close();
         }
+
         public void Recorrer(ComboBox cmb)
         {
-            String DatoLeido;
             cmb.Items.Clear();
+            AsegurarArchivo();
+
             StreamReader AD = new StreamReader(NombreArchivo);
-            DatoLeido = AD.ReadLine();
-            while (DatoLeido != null)
+            string datoLeido = AD.ReadLine();
+            while (datoLeido != null)
             {
-                cmb.Items.Add(DatoLeido);
-                DatoLeido = AD.ReadLine();
+                if (!string.IsNullOrWhiteSpace(datoLeido))
+                    cmb.Items.Add(datoLeido);
+                datoLeido = AD.ReadLine();
             }
             AD.Close();
-            cmb.SelectedIndex = 0;
+            if (cmb.Items.Count > 0)
+                cmb.SelectedIndex = 0;
         }
     }
-
 }

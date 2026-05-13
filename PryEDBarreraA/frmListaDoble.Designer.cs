@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListaDoble));
             this.gbListado = new System.Windows.Forms.GroupBox();
             this.dgvListaDoble = new System.Windows.Forms.DataGridView();
             this.clmCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,12 +46,16 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.pbCola = new System.Windows.Forms.PictureBox();
+            this.pbListaDoble = new System.Windows.Forms.PictureBox();
+            this.gbListar = new System.Windows.Forms.GroupBox();
+            this.optAscendente = new System.Windows.Forms.RadioButton();
+            this.rbDescendente = new System.Windows.Forms.RadioButton();
             this.gbListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaDoble)).BeginInit();
             this.gbEliminado.SuspendLayout();
             this.gbNuevo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCola)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbListaDoble)).BeginInit();
+            this.gbListar.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbListado
@@ -213,33 +216,72 @@
             this.txtCodigo.Size = new System.Drawing.Size(100, 20);
             this.txtCodigo.TabIndex = 0;
             // 
-            // pbCola
+            // pbListaDoble
             // 
-            this.pbCola.Image = ((System.Drawing.Image)(resources.GetObject("pbCola.Image")));
-            this.pbCola.Location = new System.Drawing.Point(30, 12);
-            this.pbCola.Name = "pbCola";
-            this.pbCola.Size = new System.Drawing.Size(223, 223);
-            this.pbCola.TabIndex = 8;
-            this.pbCola.TabStop = false;
+            this.pbListaDoble.Image = global::PryEDBarreraA.Properties.Resources.listadoble;
+            this.pbListaDoble.Location = new System.Drawing.Point(30, 12);
+            this.pbListaDoble.Name = "pbListaDoble";
+            this.pbListaDoble.Size = new System.Drawing.Size(223, 161);
+            this.pbListaDoble.TabIndex = 8;
+            this.pbListaDoble.TabStop = false;
+            // 
+            // gbListar
+            // 
+            this.gbListar.Controls.Add(this.rbDescendente);
+            this.gbListar.Controls.Add(this.optAscendente);
+            this.gbListar.Location = new System.Drawing.Point(529, 128);
+            this.gbListar.Name = "gbListar";
+            this.gbListar.Size = new System.Drawing.Size(242, 84);
+            this.gbListar.TabIndex = 12;
+            this.gbListar.TabStop = false;
+            this.gbListar.Text = "Listar datos";
+            // 
+            // optAscendente
+            // 
+            this.optAscendente.AutoSize = true;
+            this.optAscendente.Location = new System.Drawing.Point(18, 27);
+            this.optAscendente.Name = "optAscendente";
+            this.optAscendente.Size = new System.Drawing.Size(82, 17);
+            this.optAscendente.TabIndex = 0;
+            this.optAscendente.TabStop = true;
+            this.optAscendente.Text = "Ascendente";
+            this.optAscendente.UseVisualStyleBackColor = true;
+            // 
+            // rbDescendente
+            // 
+            this.rbDescendente.AutoSize = true;
+            this.rbDescendente.Location = new System.Drawing.Point(18, 50);
+            this.rbDescendente.Name = "rbDescendente";
+            this.rbDescendente.Size = new System.Drawing.Size(89, 17);
+            this.rbDescendente.TabIndex = 1;
+            this.rbDescendente.TabStop = true;
+            this.rbDescendente.Text = "Descendente";
+            this.rbDescendente.UseVisualStyleBackColor = true;
             // 
             // frmListaDoble
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.gbListar);
             this.Controls.Add(this.gbListado);
             this.Controls.Add(this.gbEliminado);
             this.Controls.Add(this.gbNuevo);
-            this.Controls.Add(this.pbCola);
+            this.Controls.Add(this.pbListaDoble);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frmListaDoble";
-            this.Text = "frmListaDoble";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Estructura de datos lineal - Lista doble";
             this.gbListado.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaDoble)).EndInit();
             this.gbEliminado.ResumeLayout(false);
             this.gbEliminado.PerformLayout();
             this.gbNuevo.ResumeLayout(false);
             this.gbNuevo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCola)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbListaDoble)).EndInit();
+            this.gbListar.ResumeLayout(false);
+            this.gbListar.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -264,6 +306,9 @@
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.TextBox txtCodigo;
-        private System.Windows.Forms.PictureBox pbCola;
+        private System.Windows.Forms.PictureBox pbListaDoble;
+        private System.Windows.Forms.GroupBox gbListar;
+        private System.Windows.Forms.RadioButton rbDescendente;
+        private System.Windows.Forms.RadioButton optAscendente;
     }
 }

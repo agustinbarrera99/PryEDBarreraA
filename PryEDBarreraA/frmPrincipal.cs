@@ -80,5 +80,23 @@ namespace PryEDBarreraA
             frmListaDoble x = new frmListaDoble();
             x.ShowDialog();
         }
+
+        private void ciudadesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCiudades x = new frmCiudades();
+            x.ShowDialog();
+        }
+
+        private void provinciasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProvincias x = new frmProvincias();
+            x.ShowDialog();
+        }
+
+        private void diasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDias x = new frmDias();
+            x.ShowDialog();
+        }
     }
 }

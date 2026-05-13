@@ -88,6 +88,8 @@
             this.Controls.Add(this.btnListar);
             this.Controls.Add(this.txtColor);
             this.Controls.Add(this.lblColores);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frmColores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Colores";
