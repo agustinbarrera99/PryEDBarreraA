@@ -40,5 +40,15 @@ namespace PryEDBarreraA
             get { return ant; }
             set { ant = value; }
         }
+        public clsNodo Derecha
+        {
+            get { return sig; }
+            set { sig = value; }
+        }
+        public clsNodo Izquierda
+        {
+            get { return ant; }
+            set { ant = value; }
+        }
     }
 }

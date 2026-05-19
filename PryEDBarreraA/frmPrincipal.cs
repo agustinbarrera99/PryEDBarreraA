@@ -98,5 +98,11 @@ namespace PryEDBarreraA
             frmDias x = new frmDias();
             x.ShowDialog();
         }
+
+        private void arbolToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmArbol x = new frmArbol();
+            x.ShowDialog();
+        }
     }
 }
