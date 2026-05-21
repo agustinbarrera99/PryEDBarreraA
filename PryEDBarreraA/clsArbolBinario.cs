@@ -10,11 +10,7 @@ namespace PryEDBarreraA
     internal class clsArbolBinario
     {
 
-        public clsNodo Raiz
-        {
-            get { return Raiz; }
-            set { Raiz = value; }
-        }
+        public clsNodo Raiz { get; set; }
 
         public void Agregar (clsNodo nuevo)
         {
@@ -46,6 +42,26 @@ namespace PryEDBarreraA
             if (R.Izquierda != null) InOrderAsc(dgv, R.Izquierda);
             dgv.Rows.Add(R.Codigo, R.Nombre, R.Tramite);
             if (R.Derecha != null) InOrderAsc(dgv, R.Derecha);
+        }
+
+        public void Recorrer(TreeView tree)
+        {
+            tree.Nodes.Clear();
+            if (Raiz != null)
+            {
+                TreeNode NodoPadre = new TreeNode("Arbol");
+                tree.Nodes.Add(NodoPadre);
+                PreOrden(Raiz, NodoPadre);
+                tree.ExpandAll();
+            }
+        }
+
+        private void PreOrden(clsNodo R, TreeNode nodoTreeView)
+        {
+            TreeNode NodoPadre = new TreeNode(R.Codigo.ToString());
+            nodoTreeView.Nodes.Add(NodoPadre);
+            if (R.Izquierda != null) PreOrden(R.Izquierda, NodoPadre);
+            if (R.Derecha != null) PreOrden(R.Derecha, NodoPadre);
         }
     }
 }
