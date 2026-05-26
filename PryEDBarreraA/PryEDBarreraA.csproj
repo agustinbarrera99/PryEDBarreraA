@@ -150,6 +150,9 @@
     <EmbeddedResource Include="frmArbol.resx">
       <DependentUpon>frmArbol.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmGrafo.resx">
+      <DependentUpon>frmGrafo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmListaDoble.resx">
       <DependentUpon>frmListaDoble.cs</DependentUpon>
     </EmbeddedResource>

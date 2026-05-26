@@ -10,11 +10,23 @@ using System.Windows.Forms;
 
 namespace PryEDBarreraA
 {
-    public partial class frmGrafo : Form
+    public partial class Grafo : Form
     {
-        public frmGrafo()
+        public Grafo()
         {
             InitializeComponent();
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        clsGrafo Grafo = new clsGrafo();
+
+        private void btnCargar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
