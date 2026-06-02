@@ -14,7 +14,7 @@
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="clsArbolBinario.cs" />
     <Compile Include="clsArchivoTexto.cs" />
+    <Compile Include="clsBaseDatos.cs" />
     <Compile Include="clsCola.cs" />
     <Compile Include="clsEstructurasLineales.cs" />
     <Compile Include="clsGrafo.cs" />
@@ -65,6 +66,18 @@
     </Compile>
     <Compile Include="frmCiudades.Designer.cs">
       <DependentUpon>frmCiudades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConsultarBaseDatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultarBaseDatos.Designer.cs">
+      <DependentUpon>frmConsultarBaseDatos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConsultaTabla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultaTabla.Designer.cs">
+      <DependentUpon>frmConsultaTabla.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDias.cs">
       <SubType>Form</SubType>
@@ -226,6 +239,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\hierarchy_organization_structure_network_icon_250151 - copia.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="data\Libreria.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

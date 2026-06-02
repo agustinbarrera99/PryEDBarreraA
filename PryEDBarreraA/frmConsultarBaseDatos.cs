@@ -8,21 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PryEDBarreraA
+namespace pryEDPereiroB
 {
-    public partial class Grafo : Form
+    public partial class frmConsultarSQL : Form
     {
-        public Grafo()
+        public frmConsultarSQL()
         {
             InitializeComponent();
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnCargar_Click(object sender, EventArgs e)
+        private void frmConsultarSQL_Load(object sender, EventArgs e)
         {
 
         }

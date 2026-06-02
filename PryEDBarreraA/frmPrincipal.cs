@@ -104,5 +104,17 @@ namespace PryEDBarreraA
             frmArbol x = new frmArbol();
             x.ShowDialog();
         }
+
+        private void consultaDeUnaTablaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConsultaTabla x = new frmConsultaTabla();
+            x.ShowDialog();
+        }
+
+        private void consultaDeBaseDeDatosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConsultarBaseDatos x = new frmConsultarBaseDatos();
+            x.ShowDialog();
+        }
     }
 }
