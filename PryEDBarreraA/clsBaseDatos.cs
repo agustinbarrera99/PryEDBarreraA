@@ -11,64 +11,74 @@ namespace PryEDBarreraA
 {
     internal class clsBaseDeDatos
     {
-        private OleDbConnection conexion = new OleDbConnection();
-        private OleDbCommand comando = new OleDbCommand();
-        private OleDbDataAdapter adaptador = new OleDbDataAdapter();
+        private OleDbConnection conexion;
+        private OleDbCommand comando;
+        private OleDbDataAdapter adaptador;
+
         private string cadenaConexion;
+
         public clsBaseDeDatos()
         {
-            string rutaBase = AppDomain.CurrentDomain.BaseDirectory;
-            string rutaRaiz = System.IO.Path.GetFullPath(System.IO.Path.Combine(rutaBase, @"..\..\..\"));
-            string rutaBD = System.IO.Path.Combine(rutaRaiz, "data", "Libreria.accdb");
-            cadenaConexion = $@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={rutaBD};";
+            string rutaDB = AppDomain.CurrentDomain.BaseDirectory + "data\\Libreria.accdb";
+            cadenaConexion = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + rutaDB;
+            conexion = new OleDbConnection(cadenaConexion);
+            comando = new OleDbCommand();
+            adaptador = new OleDbDataAdapter();
         }
 
-        public List<string> ObtenerTablas()
+        private void Abrir()
         {
-            List<string> tablas = new List<string>();
+            if (conexion.State != ConnectionState.Open)
+                conexion.Open();
+        }
 
+        private void Cerrar()
+        {
+            if (conexion.State == ConnectionState.Open)
+                conexion.Close();
+        }
+
+        public string[] ObtenerTablas()
+        {
+            string[] resultado = new string[0];
             try
             {
-                conexion.ConnectionString = cadenaConexion;
-                conexion.Open();
-
-                // GetSchema("Tables") devuelve metadatos de todas las tablas
+                Abrir();
                 DataTable esquema = conexion.GetSchema("Tables");
 
+                int count = 0;
                 foreach (DataRow fila in esquema.Rows)
                 {
                     string tipo = fila["TABLE_TYPE"].ToString();
                     string nombre = fila["TABLE_NAME"].ToString();
-
-                    // Solo tablas reales del usuario (TABLE o VIEW),
-                    // descartando las tablas internas "MSys..."
-                    if ((tipo == "TABLE" || tipo == "VIEW")
-                        && !nombre.StartsWith("MSys"))
-                    {
-                        tablas.Add(nombre);
-                    }
+                    if ((tipo == "TABLE" || tipo == "VIEW") && !nombre.StartsWith("MSys"))
+                        count++;
                 }
 
-                conexion.Close();
+                resultado = new string[count];
+                int i = 0;
+                foreach (DataRow fila in esquema.Rows)
+                {
+                    string tipo = fila["TABLE_TYPE"].ToString();
+                    string nombre = fila["TABLE_NAME"].ToString();
+                    if ((tipo == "TABLE" || tipo == "VIEW") && !nombre.StartsWith("MSys"))
+                        resultado[i++] = nombre;
+                }
+
+                Cerrar();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al obtener tablas: " + ex.Message);
             }
-
-            return tablas;
+            return resultado;
         }
 
-        // ─────────────────────────────────────────────────────────────
-        // Lista el contenido completo de una tabla en el DataGridView
-        // ─────────────────────────────────────────────────────────────
-        public void Listar(DataGridView Grilla, string tabla)
+        public void Listar(string tabla, DataGridView Grilla)
         {
             try
             {
-                conexion.ConnectionString = cadenaConexion;
-                conexion.Open();
-
+                Abrir();
                 comando.Connection = conexion;
                 comando.CommandType = CommandType.TableDirect;
                 comando.CommandText = tabla;
@@ -79,13 +89,67 @@ namespace PryEDBarreraA
 
                 Grilla.DataSource = null;
                 Grilla.DataSource = DS.Tables[tabla];
-
-                conexion.Close();
+                Cerrar();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al listar: " + ex.Message);
             }
+        }
+
+        public void Listar(DataGridView Grilla, string sql)
+        {
+            try
+            {
+                Abrir();
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = sql;
+
+                adaptador = new OleDbDataAdapter(comando);
+                DataSet DS = new DataSet();
+                adaptador.Fill(DS, "Resultado");
+
+                Grilla.DataSource = null;
+                Grilla.DataSource = DS.Tables["Resultado"];
+                Cerrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al listar: " + ex.Message);
+            }
+        }
+
+        public void EjecutarSQL(string sql)
+        {
+            try
+            {
+                Abrir();
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = sql;
+                comando.ExecuteNonQuery();
+                Cerrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al ejecutar SQL: " + ex.Message);
+            }
+        }
+
+        public void Insertar(string tabla, string columnas, string valores)
+        {
+            EjecutarSQL("INSERT INTO " + tabla + " (" + columnas + ") VALUES (" + valores + ")");
+        }
+
+        public void Actualizar(string tabla, string set, string condicion)
+        {
+            EjecutarSQL("UPDATE " + tabla + " SET " + set + " WHERE " + condicion);
+        }
+
+        public void Eliminar(string tabla, string condicion)
+        {
+            EjecutarSQL("DELETE FROM " + tabla + " WHERE " + condicion);
         }
     }
 }

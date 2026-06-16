@@ -113,7 +113,13 @@ namespace PryEDBarreraA
 
         private void consultaDeBaseDeDatosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmConsultarBaseDatos x = new frmConsultarBaseDatos();
+            frmConsultarSQL x = new frmConsultarSQL();
+            x.ShowDialog();
+        }
+
+        private void grafoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmGrafo x = new frmGrafo();
             x.ShowDialog();
         }
     }
